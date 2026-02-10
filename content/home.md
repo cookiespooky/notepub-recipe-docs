@@ -12,7 +12,7 @@ Template branding defaults:
 
 - Header brand name comes from this page frontmatter `title`.
 - Header brand logo comes from `site.default_og_image` in `config.yaml`.
-
+ 
 Use this path to get started quickly:
 
 1. [[Getting Started]]

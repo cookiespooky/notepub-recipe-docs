@@ -43,10 +43,56 @@ order: 10
 
 ## Local Development
 
-Build:
+Recommended local setup uses the same pinned release version as CI:
+
+`NOTEPUB_VERSION=v0.1.1`
+
+Download `notepub` binary from GitHub Releases:
+
+macOS (Apple Silicon):
 
 ```bash
-NOTEPUB_BIN=/path/to/notepub ./scripts/build.sh
+curl -L -o ./notepub "https://github.com/cookiespooky/notepub/releases/download/v0.1.1/notepub_darwin_arm64"
+chmod +x ./notepub
+```
+
+macOS (Intel):
+
+```bash
+curl -L -o ./notepub "https://github.com/cookiespooky/notepub/releases/download/v0.1.1/notepub_darwin_amd64"
+chmod +x ./notepub
+```
+
+Linux (amd64):
+
+```bash
+curl -L -o ./notepub "https://github.com/cookiespooky/notepub/releases/download/v0.1.1/notepub_linux_amd64"
+chmod +x ./notepub
+```
+
+Windows (PowerShell):
+
+```powershell
+Invoke-WebRequest -Uri "https://github.com/cookiespooky/notepub/releases/download/v0.1.1/notepub_windows_amd64.exe" -OutFile ".\\notepub.exe"
+```
+
+Release artifacts also include:
+
+- `notepub_linux_arm64`
+- `notepub_darwin_amd64`
+- `checksums.txt`
+
+Build with helper script (macOS/Linux, or Windows with Git Bash/WSL):
+
+```bash
+NOTEPUB_BIN=./notepub ./scripts/build.sh
+```
+
+Build on Windows without `bash`:
+
+```powershell
+.\notepub.exe index --config .\config.yaml --rules .\rules.yaml
+.\notepub.exe build --config .\config.yaml --rules .\rules.yaml --artifacts .\.notepub\artifacts --dist .\dist
 ```
 
 Serve static output:
@@ -56,6 +102,10 @@ python3 -m http.server 9000 -d dist
 ```
 
 Open: `http://127.0.0.1:9000/`
+
+Versioning rule:
+
+- Keep README commands and `.github/workflows/deploy.yml` `NOTEPUB_VERSION` on the same release tag.
 
 ## Template Notes
 

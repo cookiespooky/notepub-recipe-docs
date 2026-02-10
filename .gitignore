@@ -1,0 +1,15 @@
+# OS/editor noise
+.DS_Store
+.idea/
+.vscode/
+
+# Runtime/index artifacts
+.notepub/
+artifacts/
+
+# Build outputs
+dist/
+
+# Optional local env
+.env
+.env.*

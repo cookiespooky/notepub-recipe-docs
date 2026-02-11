@@ -46,35 +46,35 @@ order: 10
 
 Recommended local setup uses the same pinned release version as CI:
 
-`NOTEPUB_VERSION=v0.1.1`
+`NOTEPUB_VERSION=v0.1.3`
 
 Download `notepub` binary from GitHub Releases:
 
 macOS (Apple Silicon):
 
 ```bash
-curl -L -o ./notepub "https://github.com/cookiespooky/notepub/releases/download/v0.1.1/notepub_darwin_arm64"
+curl -L -o ./notepub "https://github.com/cookiespooky/notepub/releases/download/v0.1.3/notepub_darwin_arm64"
 chmod +x ./notepub
 ```
 
 macOS (Intel):
 
 ```bash
-curl -L -o ./notepub "https://github.com/cookiespooky/notepub/releases/download/v0.1.1/notepub_darwin_amd64"
+curl -L -o ./notepub "https://github.com/cookiespooky/notepub/releases/download/v0.1.3/notepub_darwin_amd64"
 chmod +x ./notepub
 ```
 
 Linux (amd64):
 
 ```bash
-curl -L -o ./notepub "https://github.com/cookiespooky/notepub/releases/download/v0.1.1/notepub_linux_amd64"
+curl -L -o ./notepub "https://github.com/cookiespooky/notepub/releases/download/v0.1.3/notepub_linux_amd64"
 chmod +x ./notepub
 ```
 
 Windows (PowerShell):
 
 ```powershell
-Invoke-WebRequest -Uri "https://github.com/cookiespooky/notepub/releases/download/v0.1.1/notepub_windows_amd64.exe" -OutFile ".\\notepub.exe"
+Invoke-WebRequest -Uri "https://github.com/cookiespooky/notepub/releases/download/v0.1.3/notepub_windows_amd64.exe" -OutFile ".\\notepub.exe"
 ```
 
 Release artifacts also include:

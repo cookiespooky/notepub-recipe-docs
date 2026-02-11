@@ -1,6 +1,7 @@
 site:
   id: default
   base_url: "http://127.0.0.1:8080/" # must end with /
+  media_base_url: "http://127.0.0.1:8080/media/"
   title: "Notepub Docs Template"
   description: "Template repository for documentation websites powered by Notepub."
   default_og_image: "/assets/notepub.svg"

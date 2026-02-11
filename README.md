@@ -29,6 +29,7 @@ The workflow computes `base_url` from your repository URL and deploys `dist/` au
 
 - `content/home.md` - documentation home page (route `/`)
 - `content/*.md` - pages, hubs, and articles
+- non-markdown files in `content/` are treated as media and exported to `/media/*`
 
 Minimal frontmatter example:
 
@@ -88,6 +89,12 @@ Build with helper script (macOS/Linux, or Windows with Git Bash/WSL):
 NOTEPUB_BIN=./notepub ./scripts/build.sh
 ```
 
+Obsidian-style image embeds are supported in CI and local scripts:
+
+- input: `![[cover.webp]]`
+- normalized: `![](/media/cover.webp)`
+- static export: `dist/media/cover.webp`
+
 Build on Windows without `bash`:
 
 ```powershell
@@ -112,7 +119,7 @@ Versioning rule:
 After creating your own repo from this template, update these values:
 
 - `site.title` and `site.description` in `config.yaml`
+- `site.media_base_url` in `config.yaml` (local default: `http://127.0.0.1:8080/media/`)
 - `content/home.md` -> `title` (shown as brand name in header)
 - `site.default_og_image` in `config.yaml` (used as brand logo in header and default OG image)
-- Yandex Metrika ID in `theme/templates/layout.html` (optional)
 - `theme/assets/llms.txt` and `theme/assets/llms-full.txt` placeholders (`<username>`, `<repo>`)

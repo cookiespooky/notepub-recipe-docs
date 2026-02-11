@@ -4,6 +4,8 @@ slug: home
 title: Documentation Template
 description: Start here to learn how this template is organized and how to publish your docs.
 ---
+![](/media/placeholder.svg)
+
 Welcome to the **Notepub documentation template**.
 
 This repository is designed to work out of the box with GitHub Pages and GitHub Actions.

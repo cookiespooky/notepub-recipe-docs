@@ -652,7 +652,6 @@ section,
 ul {
   margin: 12px 0 0;
   padding-left: 18px;
-  color: var(--muted);
 }
 
 li {
@@ -882,6 +881,8 @@ strong {
 
 .np-search-results {
   margin-top: 8px;
+  display: grid;
+  gap: 10px;
 }
 
 .np-search-item {
@@ -983,10 +984,12 @@ strong {
   list-style: none;
   padding: 0;
   margin: 16px 0 0;
+  display: grid;
+  gap: 10px;
 }
 
 .np-search-page-results li {
-  margin-bottom: 10px;
+  margin: 0;
 }
 
 .np-search-page-results li:last-child {
@@ -1054,6 +1057,10 @@ strong {
 
 .footer-built {
   margin: 0;
+}
+
+.footer-built a {
+  color: inherit;
 }
 
 .footer-built a.is-external::after {
@@ -1227,6 +1234,10 @@ strong {
 
 .icon {
   font-size: 1rem;
+}
+
+.icon-button:hover {
+  background: var(--soft);
 }
 
 .icon-button svg,

@@ -4,6 +4,10 @@
 {{- $searchLabel := "Search" -}}
 {{- $brandName := "Notepub" -}}
 {{- $brandLogo := printf "%s/notepub.svg" .AssetsBase -}}
+{{- $defaultOGImage := printf "%s/notepub.png" .AssetsBase -}}
+{{- $metaOGImage := "" -}}
+{{- $metaOGImageAlt := "" -}}
+{{- $fmOverridesOGImage := false -}}
 {{- with .Collections.home_page.Items -}}
   {{- if gt (len .) 0 -}}
     {{- $brandName = (index . 0).Title -}}
@@ -11,7 +15,29 @@
 {{- end -}}
 {{- range .Meta.OpenGraph -}}
   {{- if eq .Key "og:image" -}}
-    {{- $brandLogo = .Value -}}
+    {{- $metaOGImage = .Value -}}
+  {{- end -}}
+  {{- if eq .Key "og:image:alt" -}}
+    {{- $metaOGImageAlt = .Value -}}
+  {{- end -}}
+{{- end -}}
+{{- with (index .FM "og_image") -}}
+  {{- if ne (printf "%v" .) "" -}}
+    {{- $fmOverridesOGImage = true -}}
+  {{- end -}}
+{{- end -}}
+{{- with (index .FM "opengraph") -}}
+  {{- with (index . "image") -}}
+    {{- if ne (printf "%v" .) "" -}}
+      {{- $fmOverridesOGImage = true -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- with (index .FM "og") -}}
+  {{- with (index . "image") -}}
+    {{- if ne (printf "%v" .) "" -}}
+      {{- $fmOverridesOGImage = true -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
 
@@ -44,7 +70,20 @@
   <meta name="twitter:description" content="{{ .Page.Description }}" />
   {{- end }}
   {{- range .Meta.OpenGraph }}
+  {{- if and (ne .Key "og:image") (ne .Key "og:image:alt") }}
   <meta property="{{ .Key }}" content="{{ .Value }}" />
+  {{- end }}
+  {{- end }}
+  {{- $resolvedOGImage := $defaultOGImage -}}
+  {{- if and (eq .Page.Type "article") (ne $metaOGImage "") -}}
+    {{- $resolvedOGImage = $metaOGImage -}}
+  {{- end -}}
+  {{- if and (ne .Page.Type "article") $fmOverridesOGImage (ne $metaOGImage "") -}}
+    {{- $resolvedOGImage = $metaOGImage -}}
+  {{- end -}}
+  <meta property="og:image" content="{{ $resolvedOGImage }}" />
+  {{- if and (eq $resolvedOGImage $metaOGImage) (ne $metaOGImageAlt "") }}
+  <meta property="og:image:alt" content="{{ $metaOGImageAlt }}" />
   {{- end }}
 
   {{- if .Meta.JSONLD }}

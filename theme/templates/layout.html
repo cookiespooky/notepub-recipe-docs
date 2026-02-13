@@ -4,7 +4,7 @@
 {{- $searchLabel := "Search" -}}
 {{- $brandName := "Notepub" -}}
 {{- $brandLogo := printf "%s/notepub.svg" .AssetsBase -}}
-{{- $defaultOGImage := printf "%s/notepub.png" .AssetsBase -}}
+{{- $defaultOGImage := printf "%s/notepub.jpg" .AssetsBase -}}
 {{- $metaOGImage := "" -}}
 {{- $metaOGImageAlt := "" -}}
 {{- $fmOverridesOGImage := false -}}
@@ -64,7 +64,7 @@
   {{- if .Canonical }}
   <link rel="canonical" href="{{ .Canonical }}" />
   {{- end }}
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{{ .Title }}" />
   {{- if .Page.Description }}
   <meta name="twitter:description" content="{{ .Page.Description }}" />

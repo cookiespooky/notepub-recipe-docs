@@ -4,7 +4,7 @@ slug: home
 title: Documentation Template
 description: Start here to learn how this template is organized and how to publish your docs.
 ---
-![](/media/placeholder.svg)
+![[notepub_cover.png]]
 
 Welcome to the **Notepub documentation template**.
 

@@ -3,9 +3,12 @@ type: article
 slug: configuration
 title: Configuration
 description: Key settings in config.yaml and rules.yaml.
-hub: [reference]
+hub:
+  - "[[reference]]"
 order: 10
-related: [build-and-deploy, content-model]
+related:
+  - "[[build-and-deploy]]"
+  - "[[content-model]]"
 ---
 `config.yaml` controls source, paths, theme, and server settings.
 

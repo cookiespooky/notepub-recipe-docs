@@ -3,9 +3,11 @@ type: article
 slug: troubleshooting
 title: Troubleshooting
 description: Common issues and practical fixes.
-hub: [operations]
+hub:
+  - "[[operations]]"
 order: 20
-related: [build-and-deploy]
+related:
+  - "[[build-and-deploy]]"
 ---
 If styles are missing on GitHub Pages:
 

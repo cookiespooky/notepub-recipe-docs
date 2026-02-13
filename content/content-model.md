@@ -3,9 +3,11 @@ type: article
 slug: content-model
 title: Content Model
 description: How frontmatter and rules define your site.
-hub: [concepts]
+hub:
+  - "[[concepts]]"
 order: 10
-related: [configuration]
+related:
+  - "[[configuration]]"
 ---
 Every markdown file is a page object with frontmatter and body.
 

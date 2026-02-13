@@ -4,7 +4,9 @@ slug: getting-started
 title: Getting Started
 description: Quick setup from template to first deploy.
 order: 10
-related: [configuration, build-and-deploy]
+related:
+  - "[[configuration]]"
+  - "[[build-and-deploy]]"
 ---
 Create your own docs site in minutes:
 

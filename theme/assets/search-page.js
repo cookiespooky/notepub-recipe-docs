@@ -196,16 +196,30 @@
       row.setAttribute('role', 'option');
       row.setAttribute('aria-selected', idx === state.selected ? 'true' : 'false');
 
+      var thumb = document.createElement('img');
+      thumb.className = 'np-search-item-thumb';
+      thumb.alt = '';
+      thumb.loading = 'lazy';
+      thumb.decoding = 'async';
+      thumb.src = resolveThumb(item);
+
+      var body = document.createElement('div');
+      body.className = 'np-search-item-body';
+
       var title = document.createElement('div');
       title.className = 'np-search-item-title';
       title.textContent = item.title || item.path;
 
-      var snippet = document.createElement('div');
-      snippet.className = 'np-search-item-snippet';
-      snippet.textContent = item.snippet || '';
+      body.appendChild(title);
+      if (item.snippet) {
+        var snippet = document.createElement('div');
+        snippet.className = 'np-search-item-snippet';
+        snippet.textContent = item.snippet;
+        body.appendChild(snippet);
+      }
 
-      row.appendChild(title);
-      row.appendChild(snippet);
+      row.appendChild(thumb);
+      row.appendChild(body);
       row.addEventListener('click', function() {
         window.location.href = withBasePath(item.path);
       });
@@ -219,14 +233,29 @@
       items.forEach(function(item) {
         var li = document.createElement('li');
         var a = document.createElement('a');
+        var thumb = document.createElement('img');
+        var body = document.createElement('span');
+        var title = document.createElement('span');
         a.href = withBasePath(item.path);
-        a.textContent = item.title || item.path;
-        li.appendChild(a);
+        a.className = 'np-search-item-card';
+        thumb.className = 'np-search-item-thumb';
+        thumb.alt = '';
+        thumb.loading = 'lazy';
+        thumb.decoding = 'async';
+        thumb.src = resolveThumb(item);
+        body.className = 'np-search-item-body';
+        title.className = 'np-search-item-title';
+        title.textContent = item.title || item.path;
+        body.appendChild(title);
         if (item.snippet) {
-          var p = document.createElement('p');
-          p.textContent = item.snippet;
-          li.appendChild(p);
+          var snippet = document.createElement('span');
+          snippet.className = 'np-search-item-snippet';
+          snippet.textContent = item.snippet;
+          body.appendChild(snippet);
         }
+        a.appendChild(thumb);
+        a.appendChild(body);
+        li.appendChild(a);
         state.pageList.appendChild(li);
       });
     }
@@ -259,4 +288,11 @@
   }
 
   window.NotepubSearchPage = { init: init };
+
+  function resolveThumb(item) {
+    var thumb = item && (item.image || item.thumbnail) ? (item.image || item.thumbnail) : '/assets/placeholder.svg';
+    if (typeof thumb !== 'string') return withBasePath('/assets/placeholder.svg');
+    if (/^https?:\/\//i.test(thumb)) return thumb;
+    return withBasePath(thumb);
+  }
 })();

@@ -705,6 +705,17 @@ strong {
   color: var(--fg);
 }
 
+.content a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+
+.content a:hover {
+  text-decoration-thickness: 2px;
+}
+
 .content img {
   max-width: 100%;
   border-radius: 12px;
@@ -850,6 +861,13 @@ strong {
   border: 1px solid var(--border);
   background: var(--bg);
   font-weight: 600;
+  cursor: pointer;
+  transition: border-color .15s ease, background-color .15s ease;
+}
+
+.np-search-form button:hover {
+  border-color: var(--border);
+  background: var(--soft-2);
 }
 
 .np-search-close {

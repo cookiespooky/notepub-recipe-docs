@@ -1,15 +1,20 @@
-# OS/editor noise
 .DS_Store
-.idea/
-.vscode/
-
-# Runtime/index artifacts
-.notepub/
-artifacts/
 
 # Build outputs
 dist/
+artifacts/
+.notepub/
+
+# Local binaries and caches
+notepub
+*.log
 
 # Optional local env
 .env
 .env.*
+
+# Editor/system
+.idea/
+.vscode/
+.obsidian/
+*.swp

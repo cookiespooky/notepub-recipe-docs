@@ -989,20 +989,18 @@ strong {
 }
 
 /* Footer */
-footer {
-  padding: 28px 0 48px;
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 30px 0 30px;
+  margin-top: 60px;
   color: var(--muted);
   font-size: 14px;
 }
 
-.footer-row {
+.footer-inner {
   display: flex;
-  justify-content: space-between;
-  gap: 14px;
-  flex-wrap: wrap;
-  border-top: 1px solid var(--border);
-  padding-top: 18px;
-  margin-top: 22px;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .pill {
@@ -1018,10 +1016,26 @@ footer {
   font-size: 13px;
 }
 
-.footer-copy {
-  padding-bottom: 20px;
+.footer-built {
   margin: 0;
-  text-align: center;
+}
+
+.footer-built a.is-external::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-left: 0.1em;
+  vertical-align: -0.2em;
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M5 11L11 5M6 5h5v5' stroke='black' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M5 11L11 5M6 5h5v5' stroke='black' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
 }
 
 /* Personal-style header + mobile nav */
